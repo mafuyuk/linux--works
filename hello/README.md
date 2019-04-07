@@ -32,6 +32,15 @@ brk(0x559a7807f000)                     = 0x559a7807f000
 write(1, "hello world\n", 12)           = 12
 exit_group(0)                           = ?
 +++ exited with 0 +++
+
+$ strace  -T -o helloc.log ./helloc
+$ less helloc.log
+write(1, "hello world\n", 12)           = 12 <0.000104>
+exit_group(0)                           = ?
++++ exited with 0 +++
+
+# -Tオプションで経過時間を見れる
+# 104マイクロ秒かかっていることがわかる
 ```
 
 # Golang
