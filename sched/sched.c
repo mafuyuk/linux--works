@@ -7,13 +7,13 @@
 #include <string.h>
 #include <err.h>
 
-#define NLOOP_FOR_ESTIMATTON 100000000UL
+#define NLOOP_FOR_ESTIMATTON 1000000000UL
 #define NSECS_PER_MSEC 1000000UL
-#define NSECS_PER_SEC 10000000000UL
+#define NSECS_PER_SEC 1000000000UL
 
 static inline long diff_nsec(struct timespec before, struct timespec after)
 {
-    return ((after.tv_sec * NSECS_PER_SEC + after.tv_nsec) - (before.tv_sec * NSECS_PER_SEC + before.tv_sec));
+    return ((after.tv_sec * NSECS_PER_SEC + after.tv_nsec) - (before.tv_sec * NSECS_PER_SEC + before.tv_nsec));
 }
 
 static unsigned long loops_per_msec()
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 {
     int ret = EXIT_FAILURE;
 
-    if(argc <4) {
+    if(argc < 4) {
         fprintf(stderr, "usage: %s <nproc> <total[ms]> <resolution[ms]> \n", argv[0]);
         exit(EXIT_FAILURE);
     }
@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
             goto wait_children;
         } else if (pids[i] == 0) {
             // children
-            child_fn(i, logbuf, ncreated, nloop_per_resol, start);
+            child_fn(i, logbuf, nrecord, nloop_per_resol, start);
             /* shouldn't reach here */
         }
     }
