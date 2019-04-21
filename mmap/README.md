@@ -40,4 +40,7 @@ ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsysca
 7ffd105d9000-7ffd105db000 r--p 00000000 00:00 0                          [vvar]
 7ffd105db000-7ffd105dd000 r-xp 00000000 00:00 0                          [vdso]
 ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+$ python -c "print(0x7fe65dcf4000 - 0x7fe6578f4000)"
+104857600
 ```
