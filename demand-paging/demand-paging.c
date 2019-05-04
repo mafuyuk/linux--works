@@ -17,7 +17,7 @@ int main(void)
 
     t = time(NULL);
     s = ctime(&t);
-    printf("%.*s: before allocation, please press Enter key \n", (int)(strlen(s) - 1, s));
+    printf("%.*s: before allocation, please press Enter key \n", (int)(strlen(s) - 1), s);
     getchar();
 
     p = malloc(BUFFER_SIZE);
@@ -25,7 +25,7 @@ int main(void)
         err(EXIT_FAILURE, "malloc() failed");
 
     t = time(NULL);
-    c = ctime(&t);
+    s = ctime(&t);
     printf("%.*s: allocated %dMB, please press Enter key\n", (int)(strlen(s) - 1), s, BUFFER_SIZE / (1024 * 1024));
     getchar();
 
