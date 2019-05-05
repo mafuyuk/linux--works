@@ -1,3 +1,0 @@
-```
-$ bash vsz-rss.sh
-```
